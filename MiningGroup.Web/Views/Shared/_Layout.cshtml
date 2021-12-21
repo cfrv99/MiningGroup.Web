@@ -1,0 +1,158 @@
+﻿@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - MiningGroup.Web</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MiningGroup.Web</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - MiningGroup.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+    </html>*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Xəbərlər</title>
+
+    <!-- ICON -->
+    <link rel="icon" href="~/view/img/AMG_logo/amg_logo.png">
+
+    <!-- ICON-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Coda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/view/css/app.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar mainContainer">
+            <a href="./index.html" class="navbar_icon">
+                <img src="~/view/img/AMG_logo/amg_icon.png" alt="AMG Logo">
+            </a>
+
+            <i class="fas fa-bars navbar_menuIcon">
+                <input type="checkbox" id="menuBtn">
+            </i>
+
+            <ul class="navbar_container">
+                <li><a asp-controller="Home" asp-action="WhoWeAre">Biz kimik</a></li>
+                <li><a asp-controller="Home" asp-action="Policy">Siyasətimiz</a></li>
+                <li><a asp-controller="Home" asp-action="OurService">Xidmətlərimiz</a></li>
+                <li><a asp-controller="Home" asp-action="Media">Media</a></li>
+                <li><a href="./contact_us.html" class="navbar_contactBtn">Əlaqə</a></li>
+                <li>
+                    <form asp-action="ChangeLanguage" asp-controller="Localization" method="get">
+                        <select onchange="langSelect()" name="language" id="language" class="lang_selector">
+                            <option  selected=@(Html.CurrentLanguage()=="az") value="az">AZ</option>
+                            <option  selected=@(Html.CurrentLanguage()=="en") value="en">EN</option>
+                            <option  selected=@(Html.CurrentLanguage()=="ru") value="ru">RU</option>
+                        </select>
+                        <input type="submit" hidden id="submitLangForm" />
+                    </form>
+
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    @RenderBody()
+    <footer class="footer">
+        <div class="mainContainer footer_container">
+            <p class="footer_description">
+                Follow Us
+                <br>
+                On Social Networks
+            </p>
+
+            <ul class="social_net_container">
+                <li class="socialNetwork">
+                    <a href="https://www.facebook.com/azerimining" target="_blank">
+                        <div class="socialNetwork_icon"></div>
+                    </a>
+                </li>
+                <li class="socialNetwork">
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <div class="socialNetwork_icon"></div>
+                    </a>
+                </li>
+                <li class="socialNetwork">
+                    <a href="https://twitter.com/" target="_blank">
+                        <div class="socialNetwork_icon"></div>
+                    </a>
+                </li>
+                <li class="socialNetwork">
+                    <a href="https://www.linkedin.com/company/azeri-mining-group-llc" target="_blank">
+                        <div class="socialNetwork_icon"></div>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="footer_menu">
+                <li><a href="./index.html">Ana səhifə</a></li>
+                <li><a href="./about_us.html">Biz kimik</a></li>
+                <li><a href="./policy.html">Siyasətimiz</a></li>
+                <li><a href="./legislation.html">Qanunvericilik</a></li>
+                <li><a href="./services.html">Xidmətlərimiz</a></li>
+                <li><a href="./news.html">Media</a></li>
+            </ul>
+
+            <a href="./contact_us.html" class="footer_contactBtn">Əlaqə</a>
+
+        </div>
+    </footer>
+
+    <script src="~/view/js/app.min.js"></script>
+    <script>
+        langSelect = () => {
+            document.getElementById("submitLangForm").click();
+        }
+    </script>
+</body>
+</html>
